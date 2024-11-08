@@ -29,7 +29,6 @@ except Exception:  # nosec
 
 
 def register_minigrid_envs():
-    print("what the fuck")
     # BlockedUnlockPickup
     # ----------------------------------------
 
