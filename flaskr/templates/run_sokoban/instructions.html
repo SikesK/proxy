@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Instructions{% endblock %}
+{% block page_title%}Instructions for the study{% endblock %}
+{% block next_page_link %}"/sokoban/tutorial"{% endblock %}
+{% block next_button_text %}See tutorial{% endblock %}
+{% block head %}
+    {{ super() }}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/instructions.css') }}" />
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="imp">Please read the following instructions carefully</p>
+                <p class="instructions">
+                    Through this survey, you will be asked to play a game and then provide concepts relevant to some of the game moves. By concepts, we mean factors of the game that are relevant to playing the game. This could include things like the conditions that need to be met to play a certain move successfully (we will call moves in the game as actions). These could also include the conditions under which the move gives you positive points (hence increasing your overall score) or negative points (hence decreasing your overall score). To see an example consider the pacman game:
+                </p>
+                <img id="tutorial_image"
+                 src="/static/run_sokoban/tutorial_images/pacman.png">
+                <p class="instructions">
+                    Consider the move/action of the pacman going to the left (we will call this action ‘move_left’).
+Now if there is a wall next to pacman on the left, then pacman can’t move. So clearly a wall being there or not is an important concept for that action. Also a pellet (shown as a white dot) being on the left, is also important since pacman going to a pellet gets it +10 points. Another important concept would be if there is a ghost on the left, since moving to the left with ghosts will cause pacman to get -50 points (i.e. decrease the score by 50). As with any game, you want to finish it with a high score. Now we can express these concepts relevant to action 'move_left' as:
+                </p>
+                <p class="instructions">
+                    Concept name:
+                    No_wall_on_left
+                    <br>
+                    Concept description:
+                    There is no blue wall on the left of the pacman
+                </p>
+                <p class="instructions">
+                    Concept name:
+                    pellet_on_left
+                    <br>
+                    Concept description:
+                    There is a pellet, a white dot, right next to pacman on the left side
+                </p>
+                <p class="instructions">
+                    Concept name:
+                    ghost_on_left
+                    <br>
+                    Concept description:
+                    There is a ghost (either the red or the blue one) right next to pacman on the left side
+                </p>
+                <p class="imp">Information:</p>
+                <p class="instructions">
+                    Concept names can be a unique name given to the factor, while Concept description should include enough information about the concept that it can be identified from the picture. Think of it as a description you might provide to a friend so that they can pick all pictures where that concept may be true. For example, with the current description for pellet_on_left, a person might be able to pick all pictures where the Pacman is right next to a pellet on the left.
+                </p>
+                <p class="instructions">
+                    In this particular survey you will be asked to provide concepts related to a Japanese game called sokoban. In the game the player needs to push boxes to specific locations (marked in red). You will need to play the game online to familiarize yourself with the game mechanics (please do it even if you are familiar with the game, since we have changed some of the rules). Then you will be asked to provide concepts for some of the actions.
+                </p>
+                <p class="instructions">You are encouraged to highly explore the game to get familiar with its mechanics</p>
+                <p class="imp">IMPORTANT: We are collecting this information as part of a research project. Please try to give as many relevant concepts as you can think of. We will be checking your entries before reimbursing you for the study</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block page_navigator %}
+    {{ super() }}
+{% endblock %}

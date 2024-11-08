@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}Play sokoban{% endblock %}
+{% block page_title%}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='run_sokoban_game/css/run_sokoban.css') }}" />
+    <script>
+        //if (window.localStorage.getItem("start_time") == null){
+      	  	var start_time = new Date().getTime();
+		window.localStorage.setItem("start_time",start_time)
+	//}
+
+        var game_finished = false;
+        var current_cost = 0;
+        let init_rgb_data = "{{ rgb_data }}";
+        let action_list = {{ action_list|tojson }};
+        let explanation_type = '{{ explanation_type }}';
+        var explanation_image_1 = "{{ url_for('static', filename='run_sokoban_game/explanation_images/explanation_for_push_up.png') }}"
+        var explanation_image_2 = "{{ url_for('static', filename='run_sokoban_game/explanation_images/explanation_for_push_left.png') }}"
+        var explanation_image_3 = "{{ url_for('static', filename='run_sokoban_game/explanation_images/explanation_for_push_right.png') }}"
+        var explanation_image_4 = "{{ url_for('static', filename='run_sokoban_game/explanation_images/explanation_for_push_down.png') }}"
+        var concept_image = "{{ url_for('static', filename='run_sokoban_game/explanation_images/concept.png') }}"
+
+    </script>
+    <script src="{{ url_for('static', filename='run_sokoban_game/js/run_sokoban_game.js') }}"></script>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                Total cost: <span id="total_cost">&#x2015;</span> <br>
+                <div id="sokoban_image_container">
+
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div id="game_status" class="instructions ml-5">
+                    <h4>Game Information</h4>
+                    Game goal: Push the box into red target <br>
+		    Action just executed: <span id="last_action">&#x2015;</span> <br>
+                    <b>DO NOT REFRESH THE PAGE</b> <br>
+                    <button id="restart_game" class="btn btn-primary mt-3">Restart Game</button><br>
+                </div>
+                </div>
+            </div>
+        <div class="row mt-5">
+            <div class="col-lg-3">
+           <p id="demo"></p>
+            </div>
+            <div class="col-lg-8">
+                <div id="explanation" class="instructions ml-5">
+                    <h4>Possible Explanations:</h4>
+                    <div id="explanatory_content"> </div>
+                </div>
+                        </div>
+            </div>
+            <div class="col-lg-4">
+                <div id="key_mappings" class="instructions">
+                    <h4>Keys to execute actions:</h4>
+                    Move up - <kbd>&uparrow;</kbd><br>
+                    Move down - <kbd>&downarrow;</kbd><br>
+                    Move left - <kbd>&leftarrow;</kbd><br>
+                    Move right - <kbd>&rightarrow;</kbd><br>
+                    Push up - <kbd>w</kbd><br>
+                    Push down - <kbd>s</kbd><br>
+                    Push left - <kbd>a</kbd><br>
+                    Push right - <kbd>d</kbd><br>
+                    Activate - <kbd>Enter</kbd><br>
+                </div>
+            </div>
+
+        </div>
+
+<script>
+// Set the date we're counting down to
+//var countDownDate = new Date().getTime()+(1000 * 60*3);
+var start_time_original = window.localStorage.getItem("start_time");
+if (start_time_original == null){
+var countDownDate = new Date().getTime()+(1000 * 60*3);
+}else{
+var countDownDate = parseInt(start_time_original) +(1000 * 60*3);
+
+}
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = "<b>Time Remaining:</b> </br><b>"+minutes + "m " + seconds + "s </b>";
+  document.getElementById("demo").style.fontSize = "x-large";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+    finish_run_sokoban(); 
+}
+}, 1000);
+</script> 
+
+{% endblock %}
+{% block page_navigator %}
+{% endblock %}

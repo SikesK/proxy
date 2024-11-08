@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Thank you{% endblock %}
+{% block page_title%}{{ message }}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='run_sokoban_game/css/tlx_ratings.css') }}" />
+
+{% endblock %}
+{% block content %}
+    <div class="row" id="content_container">
+        <div class="col instructions">
+                           <h3>Subject instructions: Rating Scales</h3>
+          <p>We are not only interested in assessing your performance but also the experiences you
+had during the different task conditions. Right now we are going to describe the
+technique that will be used to examine your experiences. In the most general sense we are
+examining the “Workload" you experienced. Workload is a difficult concept to define
+precisely, but a simple one to understand generally. The factors that influence your
+experience of workload may come from the task itself, your feelings about your own
+performance, how much effort you put in, or the stress and frustration you felt, The
+workload contributed by different task elements may change as you get more familiar
+with a task, perform easier or harder versions of it, or move from one task to another.
+Physical components of workload are relatively easy to conceptualize and evaluate.
+              However, the mental components of workload may be more difficult to measure.</p>
+
+
+<p>Since workload is something that is experienced individually by each person, there are
+no effective "rulers" that can be used to estimate the workload of different activities. One
+way to find out about workload is to ask people to describe the feelings they experienced.
+Because workload may be caused by many different factors, we would like you to
+evaluate several of them individually rather than lumping them into a single global
+evaluation of overall workload. This set of six rating scales was developed for you to use
+in evaluating your experiences during different tasks. Please read the descriptions of the
+scales carefully. If you have a question about any of the scales in the table, please ask me
+about it. It is extremely important that they be clear to you. You may keep the
+    descriptions with you for reference during the experiment.</p>
+
+<p>After performing each of the tasks, you will be shown a page with rating scales.
+    You will evaluate the task by selecting a point on the six scales that best matches your experience.
+    Each line has two endpoint descriptors that describe the scale.
+    Note that “own performance” goes from “good” on the left to “bad” on the right.
+    This order has been confusing for some people. Consider each scale individually.
+    You ratings will play an important role in the evaluation being conducted,
+    thus your active participation is essential to the success of this experiment and
+    is greatly appreciated by all of us.
+</p>
+
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block page_navigator %}
+
+{% endblock %}

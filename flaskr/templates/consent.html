@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Instructions{% endblock %}
+{% block page_title%}Consent form{% endblock %}
+{% block next_page_link %}"/sokoban/tutorial"{% endblock %}
+{% block next_button_text %}See tutorial{% endblock %}
+{% block head %}
+    {{ super() }}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/consent.css') }}" />
+    <script src="{{ url_for('static', filename='js/consent.js') }}"></script>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" id="consent_form">
+                <h3 class="text-center">HUMAN FACTOR STUDY ON EXPLAINABLE PLANNING</h3>
+                <p>
+                    I am a graduate student under the direction of Professor Subbarao Kambhampati in the Department of Computer Science and Engineering at Arizona State University.  I am conducting a research study to investigate how humans views and respond to sequential plans.
+                </p>
+                <p>
+                    I am inviting your participation, which will involve playing an online game and answeing a few questions. The expected duration of your participation is 5 - 8 minutes. You have the right not to answer any question, and to stop participation at any time.
+                </p>
+                <p style="color:orange;">
+                   Your participation in this study is voluntary.  If you choose not to participate or to withdraw from the study at any time, there will be no penalty. The compensation that you will receive after completing this activity is $5. You must be 18 or older, and fluent in understanding and speaking English, in order to participate in the study.
+                </p>
+                <p>
+                    During this study, you will be exposed to research procedures pertaining to conducting human factor studies. You will also be exposed to various computer science disciplines, which include automated planning, and will be able to get a first hand view of state-of-the-art research in human-robot interaction. There are no foreseeable risks or discomforts to your participation.
+                </p>
+                <p>
+                    The data collected will be anonymous. The results of this study may be used in reports, presentations, or publications but your name will not be used. Furthermore, the results will only be shared in the aggregate form.
+                </p>
+                <p>
+                    If you have any questions concerning the research study, please contact the research team at: Subbarao Kambhampati (rao@asu.edu). If you have any questions about your rights as a subject/participant in this research, or if you feel you have been placed at risk, you can contact the Chair of the Human Subjects Institutional Review Board, through the ASU Office of Research Integrity and Assurance, at (480) 965-6788.
+                </p>
+                <p class="imp">
+                    Please let us know if you wish to be part of the study.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block page_navigator %}
+    <div class="col-lg-12 text-center instructions mt-3">
+            <button class="btn btn-primary" id="accept">Accept</button>
+            <button class="btn btn-primary ml-5" id="decline">Decline</button>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Instructions{% endblock %}
+{% block page_title%}Concepts:{% endblock %}
+{% block next_page_link %}"/study/plan_and_foil"{% endblock %}
+{% block next_button_text %}Show Plan{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/concepts.css') }}" />
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul id="concepts_list" class="list-unstyled">
+                    {% for single_concept in current_foil %}
+                        <li class="media">
+                            <img class="concept_image mr-3 mb-5" src="{{ single_concept[2] }}" alt="...">
+                            <div class="media-body">
+                              <h5 class="mt-0 mb-1">{{ single_concept[0] }}</h5>
+                              {{ single_concept[1] }}
+                            </div>
+                        </li>
+                    {%  endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block page_navigator %}
+    {{ super() }}
+{% endblock %}

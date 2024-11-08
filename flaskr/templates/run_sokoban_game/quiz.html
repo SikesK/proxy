@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Test{% endblock %}
+{% block page_title%}Quick test{% endblock %}
+{% block head %}
+    {{ super() }}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='run_sokoban_game/css/quiz.css') }}" />
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <p class="imp">Answer the following questions:</p>
+        <form action="{{ url_for('sokoban_game.quiz_response') }}" method="post">
+            <p class="instructions">Question-1: Choose all the concepts that are true in the given image:</p>
+            <p class="image"> <img class="concept_image mr-3 mb-5" src="{{ test_image_file }}" alt="..."></p>
+            <input type="hidden" name="image" value="{{ test_image }}">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul>
+                        {% for concept in concept_list %}
+                            <li class="media">
+                                <div class="media-body">
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" id="{{ concept }}" name="{{ concept }}" value="{{ concept }}">
+				      <label for="{{ concept }}"> {{ concept }} </label><br>
+
+                                  </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                        <li class="media mt-3">
+                            <div class="media-body">
+                                <button type="submit" class="btn btn-primary">Click to submit your answers</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block page_navigator %}
+{% endblock %}

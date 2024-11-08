@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Play sokoban{% endblock %}
+{% block page_title%}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='run_sokoban/css/run_sokoban.css') }}" />
+    <script>
+        let init_rgb_data = "{{ rgb_data }}";
+        let action_list = {{ action_list|tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='run_sokoban/js/run_sokoban.js') }}"></script>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="instructions" id="instruction_question"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                Total cost: <span id="total_cost">&#x2015;</span> <br>
+                <div id="sokoban_image_container">
+
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div id="game_status" class="instructions ml-5">
+                    <h4>Game Information</h4>
+                    Game goal: Push the box into red target
+                    Action just executed: <span id="last_action">&#x2015;</span> <br>
+                    Points obtained: <span id="action_cost">&#x2015;</span> <br>
+                    Total score: <span id="total_cost">&#x2015;</span> <br>
+                    <button id="restart_game" class="btn btn-primary mt-3">Restart Game</button><br>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <h5 id="action_name_in_list_of_concepts"></h5>
+                <div>
+                    <ul class="list-group" id="concept_list"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-7">
+                <div class="form-group">
+                    <button id="add_new_concept" class="btn btn-primary">Add a new concept</button>
+                    <button id="select_concept_from_list" class="btn btn-primary">Select from previously added concepts</button>
+                </div>
+                <div id="add_new_concept_form">
+                    <div class="form-group">
+                        <label class="control-label" for="concept_name">Provide Concept name:</label>
+                        <input type="text" class="form-control" id="concept_name" placeholder="Enter concept name" name="concept_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="concept_description">Provide Concept description:</label>
+                        <textarea class="form-control" id="concept_description" rows="4" name="concept_description" placeholder="Enter concept description here. Remember that concept description should include enough information about the concept such that it can be identified from the picture. Think of it as a description you might provide to a friend so that they can pick all pictures where that concept may be true."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button id="add_the_concept" class="btn btn-primary">Add the concept</button>
+                        <button id="cancel_add_the_concept" class="btn btn-primary">Cancel</button>
+                    </div>
+                </div>
+                <div id="select_concept_from_list_form">
+                    <div class="form-row align-items-center">
+                        <div class="col-auto my-1">
+                          <label for="select_concept_list">Select a concept from the list: </label>
+                          <select class="custom-select" id="select_concept_list" disabled="disabled">
+                            <option selected>No concept added yet</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="select_the_concept" class="btn btn-primary" disabled="disabled">Add the selected concept</button>
+                        <button id="cancel_select_the_concept" class="btn btn-primary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div id="key_mappings" class="instructions">
+                    <h4>Keys to execute actions:</h4>
+                    Move up - <kbd>&uparrow;</kbd><br>
+                    Move down - <kbd>&downarrow;</kbd><br>
+                    Move left - <kbd>&leftarrow;</kbd><br>
+                    Move right - <kbd>&rightarrow;</kbd><br>
+                    Push up - <kbd>w</kbd><br>
+                    Push down - <kbd>s</kbd><br>
+                    Push left - <kbd>a</kbd><br>
+                    Push right - <kbd>d</kbd><br>
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <div class="form-group" id="move_to_next_action_container">
+                    <button id="move_to_next_action" class="btn btn-primary">Next action</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block page_navigator %}
+{% endblock %}

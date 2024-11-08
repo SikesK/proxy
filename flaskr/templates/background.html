@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Background{% endblock %}
+{% block page_title%}Background information{% endblock %}
+{% block next_page_link %}"/study/thank_you"{% endblock %}
+{% block next_button_text %}Next Page{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <div class="instructions">
+        <form action="{{ url_for("study.thank_you") }}" method="post">
+            <div class="form-group row mt-5">
+              <label for="age" class="col-2 col-form-label">Please enter Age:</label>
+              <div class="col-10">
+                <input class="form-control" type="number" value="" id="age" name="age">
+              </div>
+            </div>
+            <div class="form-group row">
+                <label for="gender" class="col-2 col-form-label">Select gender</label>
+                <div class="col-10">
+                    <select class="form-control" id="gender" name="gender">
+                        <option value="do_not_specify">Do not specify</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="education" class="col-2 col-form-label">Select education</label>
+                <div class="col-10">
+                    <select class="form-control" id="education" name="education">
+                        <option value="undergrad">I have a under-graduate degree</option>
+                        <option value="masters">I have a master's degree</option>
+                        <option value="phd">I have a doctoral degree</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+              <p class="col-form-legend col-2">Have you attended any AI classes?</p>
+              <div class="col-10">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="ai_knowledge" id="ai_knowledge1" value="yes">
+                  <label class="form-check-label" for="ai_knowledge1">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="ai_knowledge" id="ai_knowledge2" value="no">
+                  <label class="form-check-label" for="ai_knowledge2">No</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <p class="col-form-legend col-2">If you have attended any AI classes, are you aware of any Automated Planning techniques?</p>
+              <div class="col-10">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="plan_knowledge" id="plan_knowledge1" value="yes">
+                  <label class="form-check-label" for="plan_knowledge1">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="plan_knowledge" id="plan_knowledge2" value="no">
+                  <label class="form-check-label" for="plan_knowledge2">No</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label for="planning_formalisms">If you are aware of any automated planning techniques, then specify planning formalisms you are familiar with:</label>
+                </div>
+                <div class="col-10">
+                    <textarea class="form-control" id="planning_formalisms" rows="3" name="planning_formalisms"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-offset-4 col-sm-8">
+                  <button type="submit" class="btn btn-primary">Submit information and finish study</button>
+              </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block page_navigator %}
+
+{% endblock %}

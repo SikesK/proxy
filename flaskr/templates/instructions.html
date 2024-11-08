@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Instructions{% endblock %}
+{% block page_title%}Instructions for the study{% endblock %}
+{% block next_page_link %}"/study/countdown"{% endblock %}
+{% block next_button_text %}Start Game{% endblock %}
+{% block head %}
+    {{ super() }}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/instructions.css') }}" />
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="imp">Please read the following instructions carefully</p>
+                <div class="text-center">
+                    <img id="instruction_image"
+                 src="/static/foils/foil6/initial_state.png">
+                </div>
+                <p class="instructions">
+                    In the following study, you will be asked to help evaluate possible explanation strategies within the context of a game called Sokoban. It is a game in which you play as the character ‘Sokoban’. The goal of Sokoban is to push the box to its target (given by the red cell in the image above). It can perform eight actions: move-up, move-left, move-right, move-down, push-up, push-left, push-right, push-down.
+                </p>
+                <p class="instructions">
+                    Also, each of the Sokoban's action is associated with some cost of doing it. Thus the aim here is to come up with a sequence of actions which will allow Sokoban to push the box with the least total cost.
+                </p>
+                <p class="instructions">
+                    In the study, you will be shown a plan that Sokoban can follow to achieve its goal, and then shown a question about a possible alternative plan. Your job then will be to select from two alternatives what you feel is a more reasonable explanation for that question.
+                </p>
+                <p class="instructions">
+                    Before you are taken to the page with the plan and the question, you will be shown a set of concepts relevant to the game that will form the vocabulary for the explanations.
+                </p>
+                <p class="imp">Please make sure to familiarize yourself with the concepts before moving on to the questions</p>
+                <p class="imp">Also, do not refresh the window or press the back button on any page in the study.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block page_navigator %}
+    {{ super() }}
+{% endblock %}

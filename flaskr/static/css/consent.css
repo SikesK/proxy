@@ -1,0 +1,22 @@
+#consent_form {
+    max-height: 80vh;
+    overflow: scroll;
+}
+
+.imp {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: normal;
+    text-transform: none;
+}
+
+#page_title {
+    padding-top: 50px;
+    font-size: 3.5rem;
+}

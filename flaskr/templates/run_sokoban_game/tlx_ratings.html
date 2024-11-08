@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block title %}Thank you{% endblock %}
+{% block page_title%}{{ message }}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='run_sokoban_game/css/tlx_ratings.css') }}" />
+
+{% endblock %}
+{% block content %}
+    <div class="row" id="content_container">
+        <div class="col instructions">
+            <form action="{{ url_for("sokoban_game.tlx_scoring_page") }}" method="post">
+                           <h3>Survey:</h3>
+	<p class="instructions_bold">Mental Demand: How mentally demanding was the task?</p>
+            <ul class="likert">
+  <li> Very Low &nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="1" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="2" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="3" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="4" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="5" />&nbsp; </li>
+    <li><input type="radio" name="mental_demand" value="6" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="7" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="8" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="9" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="10" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="11" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="12" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="13" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="14" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="15" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="16" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="17" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="18" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="19" />&nbsp; </li>
+  <li><input type="radio" name="mental_demand" value="20" />&nbsp; </li>
+<!--  <li><input type="radio" name="mental_demand" value="21" />&nbsp; </li>-->
+  <li> Very High &nbsp; </li>
+</ul>
+<br> <br>
+<p class="instructions_bold">Physical Demand: How physically demanding was the task?</p>
+            <ul class="likert">
+  <li> Very Low &nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="1" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="2" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="3" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="4" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="5" />&nbsp; </li>
+    <li><input type="radio" name="physical_demand" value="6" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="7" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="8" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="9" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="10" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="11" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="12" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="13" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="14" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="15" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="16" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="17" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="18" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="19" />&nbsp; </li>
+  <li><input type="radio" name="physical_demand" value="20" />&nbsp; </li>
+<!--  <li><input type="radio" name="physical_demand" value="21" />&nbsp; </li>-->
+  <li> Very High &nbsp; </li>
+</ul>
+<br> <br>
+
+            <p class="instructions_bold">Temporal Demand: How hurried or rushed was the pace of the task?</p>
+            <ul class="likert">
+  <li> Very Low &nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="1" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="2" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="3" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="4" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="5" />&nbsp; </li>
+    <li><input type="radio" name="temporal_demand" value="6" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="7" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="8" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="9" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="10" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="11" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="12" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="13" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="14" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="15" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="16" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="17" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="18" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="19" />&nbsp; </li>
+  <li><input type="radio" name="temporal_demand" value="20" />&nbsp; </li>
+<!--  <li><input type="radio" name="temporal_demand" value="21" />&nbsp; </li>-->
+  <li> Very High &nbsp; </li>
+</ul>
+<br> <br>
+
+            <p class="instructions_bold">Performance: How successful were you in accomplishing what
+you were asked to do?</p>
+            <ul class="likert">
+  <li> Perfect &nbsp; </li>
+  <li><input type="radio" name="performance" value="1" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="2" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="3" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="4" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="5" />&nbsp; </li>
+    <li><input type="radio" name="performance" value="6" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="7" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="8" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="9" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="10" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="11" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="12" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="13" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="14" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="15" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="16" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="17" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="18" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="19" />&nbsp; </li>
+  <li><input type="radio" name="performance" value="20" />&nbsp; </li>
+<!--  <li><input type="radio" name="performance" value="21" />&nbsp; </li>-->
+  <li> Failure &nbsp; </li>
+</ul>
+<br> <br>
+
+            <p class="instructions_bold">Effort: How hard did you have to work to accomplish
+your level of performance?</p>
+            <ul class="likert">
+  <li> Very Low &nbsp; </li>
+  <li><input type="radio" name="effort" value="1" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="2" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="3" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="4" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="5" />&nbsp; </li>
+    <li><input type="radio" name="effort" value="6" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="7" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="8" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="9" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="10" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="11" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="12" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="13" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="14" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="15" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="16" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="17" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="18" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="19" />&nbsp; </li>
+  <li><input type="radio" name="effort" value="20" />&nbsp; </li>
+<!--  <li><input type="radio" name="effort" value="21" />&nbsp; </li>-->
+  <li> Very High &nbsp; </li>
+</ul>
+<br> <br>
+
+            <p class="instructions_bold">Frustration: How insecure, discouraged, irritated, stressed,
+and annoyed were you?</p>
+            <ul class="likert">
+  <li> Very Low &nbsp; </li>
+  <li><input type="radio" name="frustration" value="1" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="2" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="3" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="4" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="5" />&nbsp; </li>
+    <li><input type="radio" name="frustration" value="6" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="7" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="8" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="9" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="10" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="11" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="12" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="13" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="14" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="15" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="16" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="17" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="18" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="19" />&nbsp; </li>
+  <li><input type="radio" name="frustration" value="20" />&nbsp; </li>
+<!--  <li><input type="radio" name="frustration" value="21" />&nbsp; </li>-->
+  <li> Very High &nbsp; </li>
+</ul>
+            <br> <br>
+
+                <div class="form-group row">
+                  <div class="col-sm-offset-4 col-sm-8">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block page_navigator %}
+
+{% endblock %}

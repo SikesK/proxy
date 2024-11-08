@@ -1,0 +1,98 @@
+.instructions {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    /*letter-spacing: 0px;*/
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+}
+
+#instruction_question {
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+}
+
+#concept_list {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    /*letter-spacing: 0px;*/
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    max-height: 225px;
+    overflow: scroll;
+}
+
+.imp {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: normal;
+    text-transform: none;
+}
+
+#sokoban_image {
+    width: 250px;
+    max-height: 250px;
+    max-width: 100%;
+    height: auto;
+}
+
+kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: .85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+}
+
+#add_new_concept_form {
+    display: none;
+}
+
+#select_concept_from_list_form {
+    display: none;
+}
+
+#move_to_next_action_container {
+    margin-top: 100px;
+}
+
+#explore{
+    color: red;
+}
+
+#game_paused_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    color: #FFF;
+    background: rgba(0, 0, 0, .6);
+}
+
+#game_paused_container {
+    padding: 3px;
+}

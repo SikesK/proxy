@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Explanation feedback{% endblock %}
+{% block page_title%}Explanation feedback{% endblock %}
+{% block next_page_link %}"/study/background"{% endblock %}
+{% block next_button_text %}Next Page{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rate_exp.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="row" id="content_container">
+        <div class="col instructions">
+            <form action="{{ url_for("study.background") }}" method="post">
+                <p class="instructions_bold">How complete was the explanation you selected?</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="likert_radio" id="likert_radio1" value="1" checked>
+                  <label class="form-check-label" for="likert_radio1">
+                    Not at all complete
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="likert_radio" id="likert_radio2" value="2">
+                  <label class="form-check-label" for="likert_radio2">
+                    Slightly complete
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="likert_radio" id="likert_radio3" value="3">
+                  <label class="form-check-label" for="likert_radio3">
+                    Moderately complete
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="likert_radio" id="likert_radio3" value="4">
+                  <label class="form-check-label" for="likert_radio3">
+                    Very complete
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="likert_radio" id="likert_radio3" value="5">
+                  <label class="form-check-label" for="likert_radio3">
+                    Fully complete
+                  </label>
+                </div>
+                <div class="form-group mt-5">
+                    <label for="other_info" class="instructions_bold">What other information would be useful (if any):</label>
+                    <textarea class="form-control" id="other_info" rows="3" name="additional_info"></textarea>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-offset-4 col-sm-8">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block page_navigator %}
+
+{% endblock %}

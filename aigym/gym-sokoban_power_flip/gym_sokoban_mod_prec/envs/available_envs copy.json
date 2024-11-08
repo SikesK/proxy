@@ -1,0 +1,11 @@
+[
+  // {
+  //   "id": "Sokoban-mod-prec-v0",
+  //   "entry_point": "gym_sokoban_mod_prec.envs:SokobanEnv"
+  // }
+  {
+    "id": "CustomGrid-v0",
+    "entry_point": "gym_sokoban_mod_prec.envs.custom_grid_env:CustomGridEnv"
+  }
+
+]

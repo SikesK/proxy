@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Thank you{% endblock %}
+{% block page_title%}{{ message }}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='run_sokoban_game/css/tlx_ratings.css') }}" />
+
+{% endblock %}
+{% block content %}
+    <div class="row" id="content_container">
+        <div class="col instructions">
+                           <h3>Sources of Workload Evaluation</h3>
+          <p>Throughout this experiment the rating scales are used to assess your experiences in the different
+            task conditions. Scales of this sort are extremely useful but their utility suffers from the tendency people
+            have to interpret them in individual ways. For examples, some people feel that mental or temporal demands are
+            the essential aspects of workload regardless of the effort they expended on a given task or the level of
+            performance they achieved. Others feel that if they performed well the workload must have been low and if
+            they performed badly it must have been high. Yet others feel that effort or feelings of frustration are the
+            most important factors in workload; and so on. The result of previous studies have already found every
+            conceivable patters on values. In addition, the factors that create levels of workload differs depends on
+            the task. For example, some tasks might be difficult because they must be completed very quickly.
+            Other may seem easy or hard because of the intensity of mental or physical effort required. Yet others feel
+            difficult because they cannot be performed well, no matter how much effort is expended.</p>
+
+<p>The evaluation you are about to perform is a technique that has been developed by NASA to assess the relative
+  importance of six facts in determining how much workload you experienced. The procedure is simple: you will be
+  presented with a series of pairs of rating scale titles (for examples Effort vs Mental Demands) and asked to
+  choose which of the terms was more important to your experience of workload in the task(s) that you just
+  performed. Each pair scale titles will appear in a different page.</p>
+
+<p>Select the scale title that represents the more important contributor to workload for the specific
+  task you performed in this experiment.</p>
+
+<p>After you finished the entire series we will be able to use the pattern of your choices to create a weighted
+  combination of the rations from that task into a summary workload score. Please consider your choices carefully
+  and make them consistent with how you used the rating scales during the particular task you were asked to evaluate.
+  Don’t think that there is any correct pattern, we are only interested in your opinion.</p>
+
+<p>If you have any question, please ask them now. Otherwise, start whenever you are ready. Thank you for your
+  participation.</p>
+
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block page_navigator %}
+
+{% endblock %}

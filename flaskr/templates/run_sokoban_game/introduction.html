@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block page_title %}Please enter name and email {% endblock %}
+{% block head %}
+    {{ super() }}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='run_sokoban_game/css/introduction.css') }}" />
+{% endblock %}
+{% block content %}
+    <div class="container instructions">
+        <form action="{{ url_for('sokoban_game.instructions') }}" method="post">
+            {#    <h3>Please enter your name and email address. Then press submit and proceed to the instruction page.</h3>#}
+            <div class="form-group row">
+              <label class="control-label col-2" for="name">Name:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="control-label col-2" for="email">Email:</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-offset-4 col-sm-8">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block page_navigator %}
+{% endblock %}

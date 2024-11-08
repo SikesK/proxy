@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Tutorial{% endblock %}
+{% block page_title%}Tutorial for the interface.{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='run_sokoban_game/css/tutorial.css') }}" />
+    <script src="{{ url_for('static', filename='run_sokoban_game/js/tutorial.js') }}"></script>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12 text-center instructions" id="image_container">
+            <p>Navigate tutorial images by clicking Prev / Next button at the bottom or by arrow keys <kbd>&leftarrow;</kbd> / <kbd>&rightarrow;</kbd>
+                <br><span style="color: red">Instructions are provided in red color</span></p>
+            <img id="tutorial_image"
+                 src="/static/run_sokoban_game/tutorial_images/tutorial_image_1.png">
+        </div>
+        <div class="col-lg-12 text-center instructions mt-3">
+            <button class="btn btn-secondary" disabled="disabled" id="prev_img">Prev</button>
+            <button class="btn btn-secondary" id="next_img">Next</button>
+            <button class="btn btn-secondary ml-5" id="play_sokoban">Play Sokoban</button>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block page_navigator %}
+
+{% endblock %}
